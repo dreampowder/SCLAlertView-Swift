@@ -159,7 +159,7 @@ open class SCLAlertView: UIViewController {
         let contentViewColor: UIColor
         let contentViewBorderColor: UIColor
         let titleColor: UIColor
-        
+        let subTitleColor: UIColor
         // Fonts
         let kTitleFont: UIFont
         let kTextFont: UIFont
@@ -220,6 +220,8 @@ open class SCLAlertView: UIViewController {
             self.buttonsLayout = buttonsLayout
             
             self.activityIndicatorStyle = activityIndicatorStyle
+            
+            self.subTitleColor = titleColor
         }
         
         mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
@@ -339,7 +341,7 @@ open class SCLAlertView: UIViewController {
         contentView.backgroundColor = appearance.contentViewColor
         viewText.backgroundColor = appearance.contentViewColor
         labelTitle.textColor = appearance.titleColor
-        viewText.textColor = appearance.titleColor
+        viewText.textColor = appearance.subTitleColor
         contentView.layer.borderColor = appearance.contentViewBorderColor.cgColor
         //Gesture Recognizer for tapping outside the textinput
         if appearance.disableTapGesture == false {
