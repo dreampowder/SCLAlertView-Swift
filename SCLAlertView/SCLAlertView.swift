@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import NVActivityIndicatorView
 
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
@@ -183,6 +182,7 @@ open class SCLAlertView: UIViewController {
         
         // Activity indicator
         var activityIndicatorStyle: UIActivityIndicatorViewStyle
+        var custumActivityView: UIView?
         
         public init(kDefaultShadowOpacity: CGFloat = 0.7,
                     kCircleTopPosition: CGFloat = 0.0,
@@ -216,7 +216,8 @@ open class SCLAlertView: UIViewController {
                     dynamicAnimatorActive: Bool = false,
                     disableTapGesture: Bool = false,
                     buttonsLayout: SCLAlertButtonLayout = .vertical,
-                    activityIndicatorStyle: UIActivityIndicatorViewStyle = .white) {
+                    activityIndicatorStyle: UIActivityIndicatorViewStyle = .white,
+                    customActivityView:UIView? = nil) {
             
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
@@ -256,6 +257,7 @@ open class SCLAlertView: UIViewController {
             self.activityIndicatorStyle = activityIndicatorStyle
             
             self.subTitleColor = subTitleColor
+            self.custumActivityView = customActivityView
         }
         
         mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
@@ -825,9 +827,13 @@ open class SCLAlertView: UIViewController {
         
         // Spinner / icon
         if style == .wait {
-            let indicator = UIActivityIndicatorView(activityIndicatorStyle: appearance.activityIndicatorStyle)
-            indicator.startAnimating()
-            circleIconView = indicator
+            if let custumActivityView = self.appearance.custumActivityView{
+                circleIconView = custumActivityView
+            }else{
+                let indicator = UIActivityIndicatorView(activityIndicatorStyle: appearance.activityIndicatorStyle)
+                indicator.startAnimating()
+                circleIconView = indicator
+            }
         }
         else {
             if let iconTintColor = iconTintColor {

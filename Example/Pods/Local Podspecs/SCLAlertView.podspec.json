@@ -23,10 +23,5 @@
     "tag": "0.8.2"
   },
   "source_files": "SCLAlertView/*.{swift}",
-  "requires_arc": true,
-  "dependencies": {
-    "NVActivityIndicatorView": [
-
-    ]
-  }
+  "requires_arc": true
 }

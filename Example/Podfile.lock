@@ -1,9 +1,5 @@
 PODS:
-  - NVActivityIndicatorView (4.1.1):
-    - NVActivityIndicatorView/Presenter (= 4.1.1)
-  - NVActivityIndicatorView/Presenter (4.1.1)
-  - SCLAlertView (0.8.2):
-    - NVActivityIndicatorView
+  - SCLAlertView (0.8.2)
 
 DEPENDENCIES:
   - SCLAlertView (from `../`)
@@ -13,8 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  NVActivityIndicatorView: 60109b9bf46efc2e71ab81453196ccdfdfeea870
-  SCLAlertView: e2b46d7a896036a3b2abecbd13674ab0bb1acd96
+  SCLAlertView: 01c62db5d30e5b4d75b157387f9daddb3dfa3427
 
 PODFILE CHECKSUM: 0dac6a8d34babb1abef949109a9eff3068006a68
 
