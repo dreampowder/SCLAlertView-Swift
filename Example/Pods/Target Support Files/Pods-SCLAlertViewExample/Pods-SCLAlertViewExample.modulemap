@@ -1,0 +1,6 @@
+framework module Pods_SCLAlertViewExample {
+  umbrella header "Pods-SCLAlertViewExample-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import NVActivityIndicatorView
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):

@@ -1,0 +1,32 @@
+{
+  "name": "SCLAlertView",
+  "version": "0.8.2",
+  "summary": "Beautiful Alert View. Written in Swift",
+  "homepage": "https://github.com/dreampowder/SCLAlertView-Swift",
+  "screenshots": [
+    "https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/errorScreenshot.png",
+    "https://raw.githubusercontent.com/vikmeup/SCPopUpView/master/successScreenshot.png"
+  ],
+  "license": {
+    "type": "MIT",
+    "file": "LICENCE"
+  },
+  "authors": {
+    "Viktor": "yazexel@gmail.com"
+  },
+  "social_media_url": "http://twitter.com/vikmeup",
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source": {
+    "git": "https://github.com/dreampowder/SCLAlertView-Swift.git",
+    "tag": "0.8.2"
+  },
+  "source_files": "SCLAlertView/*.{swift}",
+  "requires_arc": true,
+  "dependencies": {
+    "NVActivityIndicatorView": [
+
+    ]
+  }
+}
