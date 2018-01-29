@@ -39,6 +39,7 @@ class ViewController: UIViewController {
 			print("Second button tapped")
 		}
         _ = alert.showSuccess(kSuccessTitle, subTitle: kSubtitle)
+        
     }
     
     @IBAction func showError(_ sender: AnyObject) {
