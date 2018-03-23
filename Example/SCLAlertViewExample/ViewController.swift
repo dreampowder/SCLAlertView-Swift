@@ -47,9 +47,21 @@ class ViewController: UIViewController {
 //        SCLAlertView().showError(self, title: kErrorTitle, subTitle: kSubtitle)
     }
     
+    @objc func didTapGesture(){
+        print("TAP GESTURE")
+    }
+    
     @IBAction func showNotice(_ sender: AnyObject) {
-        let appearance = SCLAlertView.SCLAppearance(dynamicAnimatorActive: true)
-        _ = SCLAlertView(appearance: appearance).showNotice(kNoticeTitle, subTitle: kSubtitle)
+//        let appearance = SCLAlertView.SCLAppearance(dynamicAnimatorActive: true)
+//        _ = SCLAlertView(appearance: appearance).showNotice(kNoticeTitle, subTitle: kSubtitle)
+        let tapGesture:UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapGesture))
+        let appearance_top_image = SCLAlertView.SCLAppearance(
+            kCircleIconHeight:55.0,
+            showCloseButton: false,
+            showCircularIcon : true,
+            circleGestureRecogniser: tapGesture
+        )
+        _ = SCLAlertView(appearance: appearance_top_image).showNotice(kNoticeTitle, subTitle: kSubtitle)
     }
     
     @IBAction func showWarning(_ sender: AnyObject) {

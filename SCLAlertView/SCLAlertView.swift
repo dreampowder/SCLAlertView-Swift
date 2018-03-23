@@ -360,10 +360,7 @@ open class SCLAlertView: UIViewController {
         baseView.addSubview(circleBG)
         circleBG.addSubview(circleView)
         
-        if let gesture = appearance.circleViewGestureRecognizer{
-            circleBG.addGestureRecognizer(gesture)
-            circleBG.isUserInteractionEnabled = true
-        }
+        
         
         let x = (kCircleHeightBackground - appearance.kCircleHeight) / 2
         circleView.frame = CGRect(x:x, y:x+appearance.kCircleTopPosition, width:appearance.kCircleHeight, height:appearance.kCircleHeight)
@@ -944,6 +941,11 @@ open class SCLAlertView: UIViewController {
             timeoutTimer = Timer.scheduledTimer(timeInterval: timeout.value, target: self, selector: #selector(SCLAlertView.hideViewTimeout), userInfo: nil, repeats: false)
             showTimeoutTimer?.invalidate()
             showTimeoutTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(SCLAlertView.updateShowTimeout), userInfo: nil, repeats: true)
+        }
+        
+        if let gestureRecognizer = appearance.circleViewGestureRecognizer{
+            circleIconView?.addGestureRecognizer(gestureRecognizer)
+            circleIconView?.isUserInteractionEnabled = true
         }
         
         // Animate in the alert view
