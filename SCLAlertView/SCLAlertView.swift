@@ -149,7 +149,7 @@ open class SCLAlertView: UIViewController {
         let kCircleIconHeight: CGFloat
         let kTitleTop:CGFloat
         let kTitleHeight:CGFloat
-	let kTitleMinimumScaleFactor: CGFloat
+        let kTitleMinimumScaleFactor: CGFloat
         let kWindowWidth: CGFloat
         var kWindowHeight: CGFloat
         var kTextHeight: CGFloat
@@ -184,6 +184,9 @@ open class SCLAlertView: UIViewController {
         var activityIndicatorStyle: UIActivityIndicatorViewStyle
         var custumActivityView: UIView?
         
+        // CircleView Tap Action
+        var circleViewGestureRecognizer: UIGestureRecognizer?
+        
         public init(kDefaultShadowOpacity: CGFloat = 0.7,
                     kCircleTopPosition: CGFloat = 0.0,
                     kCircleBackgroundTopPosition: CGFloat = 6.0,
@@ -217,7 +220,8 @@ open class SCLAlertView: UIViewController {
                     disableTapGesture: Bool = false,
                     buttonsLayout: SCLAlertButtonLayout = .vertical,
                     activityIndicatorStyle: UIActivityIndicatorViewStyle = .white,
-                    customActivityView:UIView? = nil) {
+                    customActivityView:UIView? = nil,
+                    circleGestureRecogniser:UIGestureRecognizer? = nil) {
             
             self.kDefaultShadowOpacity = kDefaultShadowOpacity
             self.kCircleTopPosition = kCircleTopPosition
@@ -258,6 +262,7 @@ open class SCLAlertView: UIViewController {
             
             self.subTitleColor = subTitleColor
             self.custumActivityView = customActivityView
+            self.circleViewGestureRecognizer = circleGestureRecogniser
         }
         
         mutating func setkWindowHeight(_ kWindowHeight:CGFloat) {
@@ -354,6 +359,12 @@ open class SCLAlertView: UIViewController {
         circleBG.layer.cornerRadius = circleBG.frame.size.height / 2
         baseView.addSubview(circleBG)
         circleBG.addSubview(circleView)
+        
+        if let gesture = appearance.circleViewGestureRecognizer{
+            circleBG.addGestureRecognizer(gesture)
+            circleBG.isUserInteractionEnabled = true
+        }
+        
         let x = (kCircleHeightBackground - appearance.kCircleHeight) / 2
         circleView.frame = CGRect(x:x, y:x+appearance.kCircleTopPosition, width:appearance.kCircleHeight, height:appearance.kCircleHeight)
         circleView.layer.cornerRadius = circleView.frame.size.height / 2
